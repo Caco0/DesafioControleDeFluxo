@@ -7,28 +7,28 @@ public class Contador {
 
         System.out.println("Digite o primeiro valor");
         int parametroUm = terminal.nextInt();
+        System.out.println("Digite o segundo valor");
         int parametroDois = terminal.nextInt();
 
         try {
             contar(parametroUm, parametroDois);
             
-        } catch (ParametrosInvalidosExeption e) {
+        } catch (ParametrosInvalidosException e) {
             // TODO: handle exception
             System.out.println("O segundo parâmetro precisa ser maior que o primeiro!" );
         }
     }
-    static void contar(int parametroUm, int  parametroDois) throws ParametrosInvalidosExeption {
+    static void contar(int parametroUm, int  parametroDois) throws ParametrosInvalidosException {
 
-        if (parametroDois < parametroUm)
-            throw new ParametrosInvalidosExeption();
-            
+        if (parametroDois < parametroUm){
+            throw new ParametrosInvalidosException();
+        }else{
+            int contagem = parametroDois - parametroUm;
+            for(int i = 0; i <= contagem; i++){
+                System.out.println("Interação: " + (i));
+            }
+        }           
         
-
-        
-        int contagem = parametroUm - parametroDois;
-        for(int i = 0; i <= contagem; i++){
-            System.out.println("Contagem" + (i+1));
-        }
     }
 }
-class ParametrosInvalidosExeption extends Exception{};
+class ParametrosInvalidosException extends Exception{};
